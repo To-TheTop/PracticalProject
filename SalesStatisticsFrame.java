@@ -100,7 +100,8 @@ public class SalesStatisticsFrame extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     int con = tabDemo.getSelectedRow();
                     String name = (String) tabDemo.getValueAt(con, 0);
-
+                    //调用方法
+                    delete(name);
 
                 }
             });
@@ -109,7 +110,8 @@ public class SalesStatisticsFrame extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String s = b3.getText();
-                    
+                    //调用方法
+                    query(name);
 
                 }
             });
