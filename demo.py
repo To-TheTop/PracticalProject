@@ -12,3 +12,9 @@ url = 'https://j1.pupuapi.com/client/marketing/storeproduct/v2/search?store_id=d
 products = requests.get(url=url, headers=headers).json()
 products = products['data']['products']
 data = json.dumps(products, ensure_ascii=False, indent=1)
+write = open('products.json', 'w+', encoding='utf-8').write(data)
+# 遍历十次
+for i in range(10):
+    name = products[i]['name']
+    origin = products[i]['origin']
+    price = float(products[i]['price']) / 100
