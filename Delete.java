@@ -10,10 +10,14 @@ public class Delete {
         try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
+	//创建链接
             String url = "jdbc:mysql://localhost:3306/mysql?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";//注意设置时区
-            String username = "root";
+           //账号 
+	 String username = "root";
+   	 //密码
             String passwords = "root";
             Connection conn = DriverManager.getConnection(url, username, passwords);
+	//sql语句
             PreparedStatement ps = conn.prepareStatement("delete from commodity where name=?");
             ps.setString(1, name);
             int f = ps.executeUpdate();
@@ -22,6 +26,7 @@ public class Delete {
             } else {
                 JOptionPane.showMessageDialog(null, "没有删除数据");
             }
+	//关闭
             ps.close();
             conn.close();
         } catch (Exception e) {
